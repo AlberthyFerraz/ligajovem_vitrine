@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <title>Vitrines - Portfólio</title>
+    <title>Vitrine Técnica - SENAI</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,84 +12,115 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
-    <!-- Navbar personalizada -->
-    <nav class="portfolio-navbar">
-      <div class="navbar-container">
-        <div class="site-name">Vitrines</div>
-        
-        <div class="menu-section">
-          <span class="menu-label">PORTFÓLIO</span>
-          <div class="menu-tabs">
-            <a href="#" class="menu-tab active">Projetos</a>
-            <a href="#" class="menu-tab">Categorias</a>
-            <a href="#" class="menu-tab more-tab">Mais<span class="dropdown-arrow">▼</span></a>
-          </div>
+    <!-- Navbar personalizada --> 
+  <nav class="portfolio-navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <div class="logo">V</div>
+                <div class="site-name">Vitrine</div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#equipe">Equipe</a></li>
+                <li><a href="#vitrine">Vitrine</a></li>
+            </ul>
+            
+            <button class="contact-btn">Contato</button>
         </div>
-
-      </div>
     </nav>
 
-    <!-- Conteúdo principal -->
-    <div class="main-content">
-      <div class="welcome-section">
-        <h1>Bem-vindo ao Vitrines</h1>
-        <p class="description">Seu espaço para exibir e organizar todos os seus projetos em um só lugar.</p>
-      </div>
-      
-      <div class="project-card">
-        <div class="project-header">
-          <div>
-            <div class="project-title">Sistema de Gerenciamento</div>
-            <div class="project-date">Concluído em: Janeiro 2023</div>
-          </div>
+    <!-- Conteúdo mann-->
+    <section class="home" id="home">
+        <div class="home-content">
+            <div class="home-text">
+                <h3>Bem-vindo à Vitrine Técnica</h3>
+                <h1>Conheça o <span>futuro</span> da inovação</h1>
+                <h3><span>Projetos técnicos que transformam ideias em realidade</span></h3>
+                <p>A Vitrine Técnica SENAI  é uma plataforma dedicada a exibir e promover talentos técnicos, 
+                    conectando alunos criativos com oportunidades reais no mercado. Descubra soluções inovadoras 
+                    que estão moldando o futuro da tecnologia e da indústria.</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/the.horizon.ofc/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/nycolle-s%C3%ADmane-06a70a278/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="#vitrine" class="btn">Explorar Projetos</a>
+            </div>
+            
+            <div class="home-img">
+                <img src="imagens/home.jpg" alt="Ilustração de inovação">
+            </div>
         </div>
+    </section> 
         
-        <p class="project-description">
-          Um sistema completo desenvolvido para gerenciamento e organização projetos, com painel Projeto e relatórios escritos.
-        </p>
-        
-        <div class="project-skills">
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">MongoDB</span>
+    <!--sobre o site-->
+        <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://cdn-icons-png.flaticon.com/512/4727/4727338.png" alt="Vitrine Técnica SENAI">
         </div>
-        
+
+        <div class="about-content">
+            <h2 class="heading">Objetivo do <span>Site</span></h2>
+            <h3>Vitrine Técnica SENAI</h3>
+            <p>Somos uma plataforma dedicada a exibir e promover talentos técnicos, conectando alunos criativos 
+                com oportunidades reais no mercado. Nossa missão é fornecer um espaço onde projetos inovadores 
+                possam ser visualizados e valorizados, ajudando estudantes a mostrarem seu potencial para 
+                empresas e organizações. Ao longo de nossa jornada, reconhecemos a importância de criar pontes 
+                entre a educação técnica e o mercado de trabalho, promovendo um ambiente de inovação e 
+                desenvolvimento contínuo.</p>
+        </div>
+    </section>
+
+       <!-- Seção de Projetos  -->
+    <section class="projects-section" id="vitrine">
+        <h2 class="section-title">Projetos em Destaque</h2>
+  
         <div class="screenshots">
           <div class="screenshots-title">Imagens do Projeto</div>
           <div class="screenshot-grid">
+            
             <div class="screenshot" data-item="projeto1">
-              <img src="./images/dashboard.jpg" alt="projeto1">
+              <img src="./imagens/dashboard.jpg" alt="projeto1">
               <span>Projeto 1</span>
-            </div>
+            </div>  
+
             <div class="screenshot" data-item="projeto2">
-              <img src="./images/thumb_dashboard.jpg" alt="projeto2">
+              <img src="./imagens/thumb_dashboard.jpg" alt="projeto2">
               <span>Projeto 2</span>
             </div>
+
             <div class="screenshot" data-item="projeto3">
-              <img src="./images/thumb_2.jpg" alt="projeto3">
+              <img src="./imagens/thumb_2.jpg" alt="projeto3">
               <span>Projeto 3</span>
             </div>
+
             <div class="screenshot" data-item="projeto4">
-              <img src="./images/thumb_dashboard.jpg" alt="projeto4">
+              <img src="./imagens/thumb_dashboard.jpg" alt="projeto4">
               <span>Projeto 4</span>
+
             </div><div class="screenshot" data-item="projeto9">
-              <img src="./images/thumb_dashboard.jpg" alt="projeto5">
+              <img src="./imagens/thumb_dashboard.jpg" alt="projeto5">
               <span>Projeto 5</span>
             </div>
+
             <div class="screenshot" data-item="projeto5">
-              <img src="./images/thumb_dashboard.jpg" alt="projeto6">
+              <img src="./imagens/thumb_dashboard.jpg" alt="projeto6">
               <span>Projeto 6</span>
             </div>
+
             <div class="screenshot" data-item="projeto6">
-              <img src="./images/thumb_dashboard.jpg" alt="Mobile">
+              <img src="./imagens/thumb_dashboard.jpg" alt="Mobile">
               <span>Projeto 7</span>
             </div>
+
             <div class="screenshot" data-item="projeto7">
-              <img src="./images/thumb_dashboard.jpg" alt="Mobile">
+              <img src="./imagens/thumb_dashboard.jpg" alt="Mobile">
               <span>Projeto 8</span>
             </div>
+
             <div class="screenshot" data-item="projeto8">
-              <img src="./images/thumb_dashboard.jpg" alt="Mobile">
+              <img src="./imagens/thumb_dashboard.jpg" alt="Mobile">
               <span>Projeto 9</span>
             </div>
           </div>

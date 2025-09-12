@@ -338,3 +338,402 @@ window.addEventListener('resize', () => {
 
 
 
+// NYCOLLE MEXEU AQUI
+//efeito de scroll suave
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-menu a, .menu-tab');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Verificar se é um link interno (começa com #)
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // Calcular a posição considerando a navbar fixa
+                    const navbarHeight = document.querySelector('.portfolio-navbar').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    
+                    // Scroll suave
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fechar menu mobile se estiver aberto
+                    const navMenu = document.querySelector('.nav-menu');
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                }
+            }
+        });
+    });
+    
+    // Também adicionar para o botão de contato se ele tiver um link âncora
+    const contactBtn = document.querySelector('.contact-btn');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', function() {
+            const targetElement = document.getElementById('contato');
+            
+            if (targetElement) {
+                const navbarHeight = document.querySelector('.portfolio-navbar').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+});
+
+const smoothScrollStyle = `
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Melhorar a aparência durante o scroll */
+    * {
+        scroll-margin-top: 80px; /* Altura aproximada da navbar */
+    }
+    
+    /* Indicador visual durante o scroll */
+    @keyframes smoothScrollHighlight {
+        0% { background-color: transparent; }
+        50% { background-color: rgba(110, 142, 251, 0.1); }
+        100% { background-color: transparent; }
+    }
+    
+    .smooth-scroll-highlight {
+        animation: smoothScrollHighlight 2s ease;
+    }
+`;
+
+
+const styleSheet = document.createElement('style');
+styleSheet.textContent = smoothScrollStyle;
+document.head.appendChild(styleSheet);
+
+
+        // Controle do Menu Lateral
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sideMenu = document.querySelector('.side-menu');
+    const closeMenu = document.querySelector('.close-menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    function toggleMenu() {
+        sideMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    }
+
+    // Só adicionar event listeners se os elementos existirem (em mobile)
+    if (menuToggle && sideMenu) {
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Fechar menu ao clicar em um item (em dispositivos móveis)
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                toggleMenu();
+                
+                // Scroll suave para a seção
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // Em mobile, não precisa subtrair a altura da navbar
+                        const targetPosition = targetElement.offsetTop;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Tecla ESC para fechar o menu
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && sideMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    }
+
+    // Efeito de scroll suave para links da navbar (apenas em desktop)
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Só aplicar scroll suave se a navbar estiver visível (desktop)
+            if (window.innerWidth > 868) {
+                const href = this.getAttribute('href');
+                
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const navbarHeight = document.querySelector('.portfolio-navbar').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navbarHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            }
+        });
+    });
+
+    // Botão de contato
+    const contactBtn = document.querySelector('.contact-btn');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', function() {
+            alert('Entre em contato conosco: contato@vitrinetecnica.com');
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-menu a, .menu-tab');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const navbarHeight = window.innerWidth > 868 ? 
+                        document.querySelector('.portfolio-navbar').offsetHeight : 0;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});
+
+
+// Efeito de aparecimento suave dos cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.team-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 150 * index);
+            });
+        });
+
+
+        
+        // Forçar visibilidade dos ícones
+document.addEventListener('DOMContentLoaded', function() {
+    const icons = document.querySelectorAll('.footer-social i, .footer-section i');
+    icons.forEach(icon => {
+        icon.style.color = '#ffffff';
+        icon.style.opacity = '1';
+        icon.style.visibility = 'visible';
+    });
+    
+    // Verificar se o Font Awesome carregou
+    if (!document.querySelector('link[href*="font-awesome"]')) {
+        // Carregar Font Awesome dinamicamente se não estiver carregado
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(link);
+    }
+});
+
+
+
+
+   // Funções para controle do popup
+        function openPopup(item) {
+            document.getElementById('contentPopup').style.display = 'block';
+            
+            // Atualizar conteúdo baseado no projeto selecionado
+            const projectTitles = {
+                'projeto1': 'Dashboard Analytics',
+                'projeto2': 'E-commerce Platform', 
+                'projeto3': 'Canhão 3D',
+                'projeto4': 'Corporate Website',
+                'projeto5': 'Sistema 3D Interativo',
+                'projeto6': 'Projeto 3D Arquitetônico',
+                'projeto7': 'Mobile App',
+                'projeto8': 'Animação 3D',
+                'projeto9': 'Experiência VR'
+            };
+            
+            const projectImages = {
+                'projeto1': './imagens/dashboard.jpg',
+                'projeto2': './imagens/thumb_dashboard.jpg',
+                'projeto3': './imagens/thumb_2.jpg',
+                'projeto4': './imagens/thumb_dashboard.jpg',
+                'projeto5': './imagens/thumb_dashboard.jpg',
+                'projeto6': './imagens/thumb_dashboard.jpg',
+                'projeto7': './imagens/thumb_dashboard.jpg',
+                'projeto8': './imagens/thumb_dashboard.jpg',
+                'projeto9': './imagens/thumb_dashboard.jpg'
+            };
+            
+            const projectDescriptions = {
+                'projeto1': 'Dashboard Analytics é uma solução completa para visualização e análise de dados em tempo real. Desenvolvido com React no frontend e Node.js no backend, oferece relatórios personalizáveis, gráficos interativos e painéis configuráveis.',
+                'projeto2': 'Plataforma de e-commerce completa com sistema de pagamentos integrado, gestão de inventário, carrinho de compras e painel administrativo. Desenvolvida com as melhores práticas de UX e segurança.',
+                'projeto3': 'Modelagem 3D realista de um canhão histórico com animações detalhadas e texturas de alta qualidade. Desenvolvido com Blender e renderizado com Cycles para máxima fidelidade.',
+                'projeto4': 'Site institucional responsivo com design moderno, otimizado para SEO e integrado com redes sociais. Desenvolvido com foco na experiência do usuário e performance.',
+                'projeto5': 'Simulação 3D interativa de sistema mecânico complexo, com controles em tempo real e visualização de dados de performance. Desenvolvido com Three.js e WebGL.',
+                'projeto6': 'Renderização 3D de projeto arquitetônico com visualização em 360 graus, materiais realistas e iluminação natural. Ideal para apresentação de projetos aos clientes.',
+                'projeto7': 'Aplicativo mobile para gestão de tarefas com sincronização em nuvem, notificações push e interface intuitiva. Desenvolvido com Flutter para multiplataforma.',
+                'projeto8': 'Animação 3D de personagem com rigging completo, expressões faciais detalhadas e movimentos realistas. Projeto desenvolvido para demonstração de habilidades em animação.',
+                'projeto9': 'Experiência em realidade virtual com interação imersiva, ambientes 3D detalhados e controles intuitivos. Desenvolvido para headsets de VR modernos.'
+            };
+            
+            document.getElementById('popupTitle').textContent = projectTitles[item] || 'Projeto';
+            document.getElementById('popupImage').src = projectImages[item] || '';
+            document.getElementById('itemDescription').textContent = projectDescriptions[item] || 'Descrição do projeto.';
+        }
+        
+        function closePopup() {
+            document.getElementById('contentPopup').style.display = 'none';
+        }
+        
+        function reloadProject() {
+            console.log("Recarregar projeto");
+        }
+        
+        function openProjectFullscreen() {
+            console.log("Abrir em tela cheia");
+        }
+        
+        // Fechar o popup ao clicar fora dele
+        window.onclick = function(event) {
+            const popup = document.getElementById('contentPopup');
+            if (event.target === popup) {
+                closePopup();
+            }
+        };
+        
+        // Adicionar event listeners para os botões de conteúdo
+        document.querySelectorAll('.switch-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.switch-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                this.classList.add('active');
+                
+                document.querySelectorAll('.content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                const contentType = this.getAttribute('data-content');
+                document.getElementById(`${contentType}-content`).classList.add('active');
+            });
+        });
+        
+        // Adicionar event listeners para os cards de projeto
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const item = this.getAttribute('data-item');
+                openPopup(item);
+            });
+        });
+        
+        // Adicionar event listener para o botão de visualização
+        document.querySelectorAll('.view-project-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const card = this.closest('.project-card');
+                const item = card.getAttribute('data-item');
+                openPopup(item);
+            });
+        });
+
+
+
+
+         // Atualizar o tamanho da tela
+        function updateSize() {
+            document.getElementById('width').textContent = window.innerWidth;
+            document.getElementById('height').textContent = window.innerHeight;
+        }
+        
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        
+        // Controle do menu mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sideMenu = document.querySelector('.side-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        const closeMenu = document.querySelector('.close-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            sideMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        function closeMenuFunction() {
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        closeMenu.addEventListener('click', closeMenuFunction);
+        menuOverlay.addEventListener('click', closeMenuFunction);
+        
+        // Fechar o menu ao clicar em um item
+        const menuItems = document.querySelectorAll('.mobile-menu a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', closeMenuFunction);
+        });
+        
+        document.querySelector('.mobile-contact').addEventListener('click', closeMenuFunction);
+
+
+        // para os botões funcionarem no vitrine
+        document.querySelectorAll('.view-project-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Visualização do projeto em breve!');
+            });
+        });
+
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }

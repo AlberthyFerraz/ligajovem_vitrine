@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
-    <link rel="icon" type="image/png" href="./images/mechanical.png">
-    <!-- Ícones para redes sociais -->
+    <link rel="icon" type="image/png" href="./imagens/logo.png">
      
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
-    <!-- Navbar personalizada --> 
-  <nav class="portfolio-navbar">
+
+  <!-- Navbar personalizada --> 
+    <nav class="portfolio-navbar">
         <div class="navbar-container">
             <div class="logo-container">
-                <div class="logo">V</div>
+             
                 <div class="site-name">Vitrine</div>
             </div>
             
@@ -27,18 +27,83 @@
                 <li><a href="#vitrine">Vitrine</a></li>
             </ul>
             
-            <button class="contact-btn">Contato</button>
+          <button class="contact-btn" onclick="scrollToContact()">Contato</button>
         </div>
     </nav>
 
-    <!-- Conteúdo mann-->
+    <!-- Menu Lateral Direito  -->
+    <div class="side-menu-container">
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="side-menu">
+        <button class="close-menu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="menu-header">
+            <h3>Menu de Navegação</h3>
+            <p>Acesso rápido e intuitivo</p>
+        </div>
+
+        <div class="menu-items">
+            <a href="#home" class="menu-item">
+                <i class="fas fa-home"></i>
+                <span>Início</span>
+            </a>
+            
+            <a href="#sobre" class="menu-item">
+                <i class="fas fa-info-circle"></i>
+                <span>Sobre Nós</span>
+            </a>
+            
+            <a href="#vitrine" class="menu-item">
+                <i class="fas fa-images"></i>
+                <span>Vitrine de Projetos</span>
+            </a>
+            
+            <a href="#equipe" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Nossa Equipe</span>
+            </a>
+
+            <div class="menu-divider"></div>
+
+            <a href="mailto:contato@vitrinetecnica.com" class="menu-item">
+                <i class="fas fa-envelope"></i>
+                <span>Contato</span>
+            </a>
+            
+            <div class="menu-divider"></div>
+
+            <a href="#" class="menu-item">
+                <i class="fas fa-question-circle"></i>
+                <span>Ajuda & Suporte</span>
+            </a>
+        </div>
+
+        <div class="social-menu">
+            <a href="https://www.instagram.com/the.horizon.ofc/">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/nycolle-símane-06a70a278/">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-overlay"></div>
+
+    <!-- apresentação do site -->
     <section class="home" id="home">
         <div class="home-content">
             <div class="home-text">
                 <h3>Bem-vindo à Vitrine Técnica</h3>
-                <h1>Conheça o <span>futuro</span> da inovação</h1>
+                <h1>Conheça o<span> futuro</span> da inovação</h1>
                 <h3><span>Projetos técnicos que transformam ideias em realidade</span></h3>
-                <p>A Vitrine Técnica SENAI  é uma plataforma dedicada a exibir e promover talentos técnicos, 
+                <p>A Vitrine Técnica SENAI é uma plataforma dedicada a exibir e promover talentos técnicos, 
                     conectando alunos criativos com oportunidades reais no mercado. Descubra soluções inovadoras 
                     que estão moldando o futuro da tecnologia e da indústria.</p>
                 <div class="social-media">
@@ -54,10 +119,10 @@
         </div>
     </section> 
         
-    <!--sobre o site-->
-        <section class="about" id="about">
+    <!--objetivo do site-->
+    <section class="about" id="sobre">
         <div class="about-img">
-            <img src="https://cdn-icons-png.flaticon.com/512/4727/4727338.png" alt="Vitrine Técnica SENAI">
+            <img src="imagens/robô.png" alt="Vitrine Técnica SENAI">
         </div>
 
         <div class="about-content">
@@ -72,133 +137,392 @@
         </div>
     </section>
 
-       <!-- Seção de Projetos  -->
-    <section class="projects-section" id="vitrine">
-        <h2 class="section-title">Projetos em Destaque</h2>
-  
-        <div class="screenshots">
-          <div class="screenshots-title">Imagens do Projeto</div>
-          <div class="screenshot-grid">
+    <section class="hero" id="equipe">
+        <h1>Conheça a <span>Equipe</span></h1>
+        <p>Onde a prática encontra a inovação.</p>
+    </section>
+    
+    <div class="team-container">
+        <div class="team-grid">
+
+            <div class="team-card">
+                <img src="imagens/professor.jpg" alt="Lourisvan Costa" class="member-photo"></img>
+                <h2 class="member-name">Lourisvan Costa</h2>
+                <p class="member-role">Orientador</p>
+                <p class="member-skills">Engenharia de Produção</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
             
-            <div class="screenshot" data-item="projeto1">
-              <img src="./imagens/dashboard.jpg" alt="projeto1">
-              <span>Projeto 1</span>
-            </div>  
-
-            <div class="screenshot" data-item="projeto2">
-              <img src="./imagens/thumb_dashboard.jpg" alt="projeto2">
-              <span>Projeto 2</span>
+            <div class="team-card">
+                <img src="imagens/albt.jpg" alt="Alberthy Ferraz" class="member-photo">
+                <h2 class="member-name">Alberthy Ferraz</h2>
+                <p class="member-role">TI - Web developer</p>
+                <p class="member-skills">Técnico em Eletromecânica</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-
-            <div class="screenshot" data-item="projeto3">
-              <img src="./imagens/thumb_2.jpg" alt="projeto3">
-              <span>Projeto 3</span>
+            
+            <div class="team-card">
+                <img src="imagens/bianca.jpg" alt="Bianca Moreno" class="member-photo">
+                <h2 class="member-name">Bianca Moreno</h2>
+                <p class="member-role">Colaboradora</p>
+                <p class="member-skills">Técnica em Eletromecânica</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-
-            <div class="screenshot" data-item="projeto4">
-              <img src="./imagens/thumb_dashboard.jpg" alt="projeto4">
-              <span>Projeto 4</span>
-
-            </div><div class="screenshot" data-item="projeto9">
-              <img src="./imagens/thumb_dashboard.jpg" alt="projeto5">
-              <span>Projeto 5</span>
+            
+            <div class="team-card">
+                <img src="imagens/renan.jpg" alt="Éric Renan" class="member-photo">
+                <h2 class="member-name">Éric Renan</h2>
+                <p class="member-role">Responsável Técnico</p>
+                <p class="member-skills">Técnico em Eletromecânica</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-
-            <div class="screenshot" data-item="projeto5">
-              <img src="./imagens/thumb_dashboard.jpg" alt="projeto6">
-              <span>Projeto 6</span>
+            
+            <div class="team-card">
+                <img src="imagens/nycolle.jpg" alt="Nycolle Símane" class="member-photo">
+                <h2 class="member-name">Nycolle Símane</h2>
+                <p class="member-role">Dev Web | UI/UX Design</p>
+                <p class="member-skills">Técnica em Eletromecânica</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-
-            <div class="screenshot" data-item="projeto6">
-              <img src="./imagens/thumb_dashboard.jpg" alt="Mobile">
-              <span>Projeto 7</span>
+            
+            <div class="team-card">
+                <img src="imagens/samyle.jpg" alt="Samyle Rodrigues" class="member-photo">
+                <h2 class="member-name">Samyle Rodrigues</h2>
+                <p class="member-role">Colaboradora</p>
+                <p class="member-skills">Técnica em Eletromecânica</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-
-            <div class="screenshot" data-item="projeto7">
-              <img src="./imagens/thumb_dashboard.jpg" alt="Mobile">
-              <span>Projeto 8</span>
-            </div>
-
-            <div class="screenshot" data-item="projeto8">
-              <img src="./imagens/thumb_dashboard.jpg" alt="Mobile">
-              <span>Projeto 9</span>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
 
-   <!-- Pop-up Multifuncional -->
-<div id="contentPopup" class="popup">
-  <div class="popup-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    
-    <div class="popup-header">
-      <!-- nome para mudar no projeto -->
-      <h2 id="popupTitle">Projeto 1</h2>
-      <div id="itemViews" class="subscribers">17 visualizações estimadas</div>
-      
-      <!-- Botões de alternância -->
-      <div class="content-switcher">
-        <button class="switch-btn active" data-content="image">
-          <i class="fas fa-image"></i> Imagem
-        </button>
-        <button class="switch-btn" data-content="text">
-          <i class="fas fa-align-left"></i> Texto
-        </button>
-        <button class="switch-btn" data-content="project" id="projectBtn">
-          <i class="fas fa-cube"></i> Projeto
-        </button>
-      </div>
+ <!-- Vitrine de Projetos -->
+    <section class="projects-showcase" id="vitrine">
+
+        <div class="vitrine-header">
+            <h1>Vitrine de <span>Projetos</span></h1>
+            <p>Trabalhos profissionais em desaque</p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card" data-item="projeto1">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=Dashboard+Analytics" alt="Dashboard Analytics">
+                    <div class="project-overlay">
+                        <button class="view-project-btn">Ver Projeto</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Dashboard Analytics</h3>
+                    <p>Dashboard interativo com visualização de dados em tempo real e relatórios personalizáveis.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Dashboard</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Data Viz</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-item="projeto2">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=E-commerce+Platform" alt="E-commerce Platform">
+                    <div class="project-overlay">
+                        <button class="view-project-btn">Ver Projeto</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>E-commerce Platform</h3>
+                    <p>Plataforma de e-commerce com carrinho de compras, pagamento integrado e painel administrativo.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">E-commerce</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-item="projeto1">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=Dashboard+Analytics" alt="Dashboard Analytics">
+                    <div class="project-overlay">
+                        <button class="view-project-btn">Ver Projeto</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Dashboard Analytics</h3>
+                    <p>Dashboard interativo com visualização de dados em tempo real e relatórios personalizáveis.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Dashboard</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Data Viz</span>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="project-card" data-item="projeto1">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=Dashboard+Analytics" alt="Dashboard Analytics">
+                    <div class="project-overlay">
+                        <button class="view-project-btn">Ver Projeto</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Dashboard Analytics</h3>
+                    <p>Dashboard interativo com visualização de dados em tempo real e relatórios personalizáveis.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Dashboard</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Data Viz</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-item="projeto2">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=E-commerce+Platform" alt="E-commerce Platform">
+                    <div class="project-overlay">
+                        <button class="view-project-btn">Ver Projeto</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>E-commerce Platform</h3>
+                    <p>Plataforma de e-commerce com carrinho de compras, pagamento integrado e painel administrativo.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">E-commerce</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-item="projeto1">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=Dashboard+Analytics" alt="Dashboard Analytics">
+                    <div class="project-overlay">
+                        <button class="view-project-btn">Ver Projeto</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Dashboard Analytics</h3>
+                    <p>Dashboard interativo com visualização de dados em tempo real e relatórios personalizáveis.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Dashboard</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Data Viz</span>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="project-card" data-item="projeto1">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=Dashboard+Analytics" alt="Dashboard Analytics">
+                    <div class="project-overlay">
+                        <button class="view-project-btn">Ver Projeto</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Dashboard Analytics</h3>
+                    <p>Dashboard interativo com visualização de dados em tempo real e relatórios personalizáveis.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Dashboard</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Data Viz</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-item="projeto2">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=E-commerce+Platform" alt="E-commerce Platform">
+                    <div class="project-overlay">
+                        <button class="view-project-btn">Ver Projeto</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>E-commerce Platform</h3>
+                    <p>Plataforma de e-commerce com carrinho de compras, pagamento integrado e painel administrativo.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">E-commerce</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-item="projeto1">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=Dashboard+Analytics" alt="Dashboard Analytics">
+                    <div class="project-overlay">
+                        <button class="view-project-btn">Ver Projeto</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Dashboard Analytics</h3>
+                    <p>Dashboard interativo com visualização de dados em tempo real e relatórios personalizáveis.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Dashboard</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Data Viz</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Pop-up de Detalhes do Projeto -->
+    <div id="contentPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            
+            <div class="popup-header">
+                <h2 id="popupTitle">Dashboard Analytics</h2>
+                <div id="itemViews" class="subscribers">Visualizações: 247</div>
+                
+                <div class="content-switcher">
+                    <button class="switch-btn active" data-content="image">
+                        <i class="fas fa-image"></i> Visualização
+                    </button>
+                    <button class="switch-btn" data-content="text">
+                        <i class="fas fa-align-left"></i> Detalhes
+                    </button>
+                    <button class="switch-btn" data-content="project" id="projectBtn">
+                        <i class="fas fa-cube"></i> Demo
+                    </button>
+                </div>
+            </div>
+            
+            <div class="popup-body">
+                <div id="image-content" class="content active">
+                    <img id="popupImage" src="./imagens/dashboard.jpg" alt="Visualização do projeto">
+                </div>
+                
+                <div id="text-content" class="content">
+                    <div class="text-content">
+                        <p id="itemDescription">Dashboard Analytics é uma solução completa para visualização e análise de dados em tempo real. Desenvolvido com React no frontend e Node.js no backend, oferece relatórios personalizáveis, gráficos interativos e painéis configuráveis. O projeto inclui integração com múltiplas fontes de dados, atualizações em tempo real e exportação de relatórios em diversos formatos.</p>
+                    </div>
+                </div>
+                
+               
+            </div>
+            
+            <div class="popup-footer">
+                <div class="share-section">
+                    <h3>Compartilhar este projeto</h3>
+                    <div class="share-options">
+                        <button class="share-btn" style="background: #3b5998;">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button class="share-btn" style="background: #1da1f2;">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="share-btn" style="background: #0077b5;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </button>
+                        <button class="share-btn" style="background: #25d366;">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <!-- Área de conteúdo -->
-    <div class="popup-body">
-      <!-- Conteúdo de Imagem -->
-      <div id="image-content" class="content active">
-        <img id="popupImage" src="" alt="">
-      </div>
-      <div id="image-content" class="content active">
-        <img id="popupImage" src="" alt="">
-      </div>
-      <!-- Conteúdo de Texto -->
-      <div id="text-content" class="content">
-        <div class="text-content">
-          <p id="itemDescription">Descrição do item...</p>
+
+     <!-- Seção de Contato -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="contact-heading">Entre em <span>Contato</span></h2>
+            <p class="contact-subtitle">Tem um projeto em mente? Vamos conversar e transformar suas ideias em realidade.</p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Nossas Informações</h3>
+                
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contato@vitrinetecnica.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Envie uma Mensagem</h3>
+                    
+                    <form action="https://formsubmit.co/seu-email@provedor.com" method="POST">
+                        <div class="form-row">
+                            <input type="text" name="name" placeholder="Nome completo" required>
+                            <input type="email" name="email" placeholder="Seu melhor email" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <input type="tel" name="phone" placeholder="Telefone para contato">
+                            <input type="text" name="subject" placeholder="Assunto da mensagem" required>
+                        </div>
+                        
+                        <textarea name="message" rows="5" placeholder="Conte-nos sobre seu projeto..." required></textarea>
+                        
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <!-- Conteúdo de Projeto (inicialmente vazio) -->
-      <div id="project-content" class="content">
-        <div class="project-loading">
-          <i class="fas fa-spinner fa-spin"></i> Carregando projeto...
+    </section>
+
+
+
+
+    <!--FOOTERR-->
+   <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Vitrine Técnica</h3>
+                <p>Transformando ideias em soluções digitais inovadoras.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/the.horizon.ofc/"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#equipe">Equipe</a></li>
+                    <li><a href="#vitrine">Vitrine</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Endereço da Empresa</p>
+                <p><i class="fas fa-envelope"></i> contato@vitrinetecnica.com</p>
+            </div>
         </div>
-        <div class="project-viewer" style="display:none">
-          <iframe id="projectFrame" sandbox="allow-scripts allow-same-origin"></iframe>
-          <div class="project-controls">
-            <button onclick="reloadProject()">
-              <i class="fas fa-sync-alt"></i> Recarregar
-            </button>
-            <button onclick="openProjectFullscreen()">
-              <i class="fas fa-expand"></i> Tela Cheia
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="popup-footer">
-      <div class="contact-section">
-        <h3>Entre em contato com o dono</h3>
-        <div class="contact-link">
-          <a href="mailto:contato@exemplo.com">
-            <i class="fas fa-envelope"></i> contato@exemplo.com
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+        
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vitrine Técnica. Todos os direitos reservados.</p>
+            </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>

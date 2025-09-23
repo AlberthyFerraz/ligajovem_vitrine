@@ -1,14 +1,6 @@
 // Dados dos itens
 const portfolioItems = {
-  projeto1: {
-    image: 'images/engrenagem.jpg',
-    image1: 'images/engrenagem.jpg',
-    
-    title: 'Dashboard do Sistema',
-    description: ' 🔩 Sobre o Projeto –cisão, roscas e acabamento superficial. Todas as partes do canhão foram confeccionadas com o uso de máquinas-ferramenta, como torno mecânico, fresadora e furadeira de bancada.  Durante o desenvolvimento, os alunos trabalharam conceitos como:  Leitura e interpretação de desenho técnico;  Medição e controle dimensional com instrumentos de precisão;  Segurança na operação de máquinas;  Montagem e testes funcionais do protótipo.  Além do aspecto técnico, o projeto também visa estimular a criatividade, o trabalho em equipe e a valorização do conhecimento histórico, promovendo uma aprendizagem completa, conectada ao mundo real.',
-    views: 17,
-    projectUrl: 'external/dashboard.html'
-  },
+
   projeto2: {
     image: 'images/dashboard.jpg',
     title: 'Dashboard do Sistema',
@@ -66,7 +58,134 @@ const portfolioItems = {
     projectUrl: 'projetos/mobile.html'
   }
 };
-
+document.addEventListener('DOMContentLoaded', function() {
+            const popupOverlay = document.getElementById('popupOverlay');
+            const openPopupBtn = document.getElementById('openPopup');
+            const closePopupBtn = document.getElementById('closePopup');
+            const popupIframe = document.getElementById('popupIframe');
+            const mainContainer = document.getElementById('mainContainer');
+            const popupContent2 = document.getElementById('popupContent2');
+            const popupHeader = document.getElementById('popupHeader');
+            const toggleResizeBtn = document.getElementById('toggleResize');
+            const resetPopupBtn = document.getElementById('resetPopup');
+            
+            // Variável para controlar o redimensionamento
+            let isResizable = true;
+            
+            // Abrir o popup
+            openPopupBtn.addEventListener('click', function() {
+                // Carregar o conteúdo externo (substitua pelo caminho do seu arquivo HTML)
+                popupIframe.src = 'external/dashboard.html';
+                  document.addEventListener('keydown', function(e) {
+               if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+              closePopupBtn.click();
+                      }
+                      });
+                // Exibir o popup
+                popupOverlay.classList.add('active');
+                document.body.classList.add('popup-open');
+                document.body.style.overflow = 'hidden'; // Impede a rolagem da página principal
+                
+                // Esconder o botão e container principal
+                openPopupBtn.style.display = 'none';
+                mainContainer.classList.add('hidden');
+            });
+            
+            // Fechar o popup
+            closePopupBtn.addEventListener('click', function() {
+                popupOverlay.classList.remove('active');
+                document.body.classList.remove('popup-open');
+                document.body.style.overflow = 'auto'; // Restaura a rolagem
+                
+                // Mostrar o botão e container principal novamente
+                openPopupBtn.style.display = 'block';
+                mainContainer.classList.remove('hidden');
+                
+                // Parar de carregar o iframe para economizar recursos
+                setTimeout(function() {
+                    popupIframe.src = 'about:blank';
+                }, 300);
+            });
+            
+            // Fechar o popup clicando fora do conteúdo
+            popupOverlay.addEventListener('click', function(e) {
+                if (e.target === popupOverlay) {
+                    closePopupBtn.click();
+                }
+            });
+            
+            // Fechar com a tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+                    closePopupBtn.click();
+                }
+            });
+            
+            // Ativar/desativar redimensionamento
+            toggleResizeBtn.addEventListener('click', function() {
+                isResizable = !isResizable;
+                if (isResizable) {
+                    popupContent2.style.resize = 'both';
+                    toggleResizeBtn.textContent = 'Desativar Redimensionamento';
+                } else {
+                    popupContent2.style.resize = 'none';
+                    toggleResizeBtn.textContent = 'Ativar Redimensionamento';
+                }
+            });
+            
+            // Redefinir tamanho do popup
+            resetPopupBtn.addEventListener('click', function() {
+                popupContent2.style.width = '90%';
+                popupContent2.style.height = '80vh';
+            });
+            
+            // Tornar o popup arrastável pelo cabeçalho
+            let isDragging = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            let xOffset = 0;
+            let yOffset = 0;
+            
+            popupHeader.addEventListener('mousedown', dragStart);
+            document.addEventListener('mouseup', dragEnd);
+            document.addEventListener('mousemove', drag);
+            
+            function dragStart(e) {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+                
+                if (e.target === popupHeader) {
+                    isDragging = true;
+                }
+            }
+            
+            function dragEnd(e) {
+                initialX = currentX;
+                initialY = currentY;
+                
+                isDragging = false;
+            }
+            
+            function drag(e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                    
+                    xOffset = currentX;
+                    yOffset = currentY;
+                    
+                    setTranslate(currentX, currentY, popupContent2);
+                }
+            }
+            
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = `translate(${xPos}px, ${yPos}px) scale(1)`;
+            }
+        });
 // Abre o pop-up
 function openContentPopup(itemId) {
   const item = portfolioItems[itemId];
@@ -220,14 +339,7 @@ function openContentPopup(itemId) {
   // Reseta o estado do projeto
   projectLoaded = false;
   currentProjectUrl = item.projectUrl;
-  
-  // Atualiza o conteúdo
-  document.getElementById('popupTitle').textContent = item.title;
-  document.getElementById('popupImage').src = item.image;
-  document.getElementById('popupImage').alt = item.title;
-  document.getElementById('itemDescription').textContent = item.description;
-  document.getElementById('itemViews').textContent = `${item.views} visualizações`;
-  
+
   // Mostra a imagem por padrão
   document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
   document.getElementById('image-content').classList.add('active');
@@ -598,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             const projectImages = {
-                'projeto1': './imagens/dashboard.jpg',
+                'projeto1': './imagens/thumb_dashboard.jpg',
                 'projeto2': './imagens/thumb_dashboard.jpg',
                 'projeto3': './imagens/thumb_2.jpg',
                 'projeto4': './imagens/thumb_dashboard.jpg',
@@ -737,3 +849,4 @@ document.addEventListener('DOMContentLoaded', function() {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
             }
         }
+        

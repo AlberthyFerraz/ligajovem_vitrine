@@ -212,7 +212,7 @@
         </div>
     </div>
 
- <!-- vitrine de Projetos -->
+ <!-- vitrine de Projetos e-->
     <section class="projects-showcase" id="vitrine">
 
         <div class="vitrine-header">
@@ -400,7 +400,7 @@
                     <button class="switch-btn" data-content="text">
                         <i class="fas fa-align-left"></i> Detalhes
                     </button>
-                    <button class="switch-btn" data-content="project" id="projectBtn">
+                    <button class="switch-btn" data-content="project" id="openPopup">
                         <i class="fas fa-cube"></i> Demo
                     </button>
                 </div>
@@ -416,10 +416,27 @@
                         <p id="itemDescription">Dashboard Analytics é uma solução completa para visualização e análise de dados em tempo real. Desenvolvido com React no frontend e Node.js no backend, oferece relatórios personalizáveis, gráficos interativos e painéis configuráveis. O projeto inclui integração com múltiplas fontes de dados, atualizações em tempo real e exportação de relatórios em diversos formatos.</p>
                     </div>
                 </div>
+                <div id="project-content" class="content">
+                    <div class="project-loading">
+                    
             </div>
-
-            
-            
+        </div>
+            </div>
+            <!-- Estrutura do Popup -->
+             
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content2" id="popupContent">
+            <div class="popup-header" id="popupHeader">
+                <h2 class="popup-title">Demo do Projeto</h2>
+                <button class="close-btn" id="closePopup">&times;</button>
+            </div>
+            <div class="popup-body2">
+                <!-- O conteúdo externo será carregado aqui -->
+                <iframe class="popup-iframe" id="popupIframe" src="about:blank"></iframe>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+    </div>
             <div class="popup-footer">
                 <div class="share-section">
                     <h3>Compartilhar este projeto</h3>
